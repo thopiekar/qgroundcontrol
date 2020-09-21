@@ -1,12 +1,16 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
-export QT_SELECT := qt5
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
 %:
-	dh $@ 
+	dh $@ --buildsystem=qmake --builddirectory=build --parallel
+
+override_dh_auto_clean:
+	# Let's act as we would be a pure qmake project
+	rm -f Makefile
+	dh_clean -O--buildsystem=qmake
 
 override_dh_auto_configure:
-	/opt/qt55/bin/qmake -r qgroundcontrol.pro CONFIG+=installer CONFIG+=WarningsAsErrorsOn
+	dh_auto_configure -- MAVLINKPATH_REL=/usr/include/mavlink/v2.0 ../qgroundcontrol.pro
