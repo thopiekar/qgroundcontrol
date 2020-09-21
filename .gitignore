@@ -85,3 +85,6 @@ Qt*-linux*.tar.*
 .vs/
 
 libs/airmapd/include/boost
+
+# debian
+debian/files
