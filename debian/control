@@ -24,7 +24,7 @@ Build-Depends:
  espeak,
  libespeak-dev,
  libudev-dev,
- libsdl1.2-dev,
+ libsdl2-dev,
  libmavlink-dev,
 Standards-Version: 3.9.5
 Homepage: https://github.com/mavlink/qgroundcontrol
