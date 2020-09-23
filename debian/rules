@@ -13,4 +13,4 @@ override_dh_auto_clean:
 	dh_clean -O--buildsystem=qmake
 
 override_dh_auto_configure:
-	dh_auto_configure -- DISABLE_VIDEOSTREAMING=1 MAVLINKPATH=/usr/include/mavlink/v2.0 MAVLINKPATH_REL=/usr/include/mavlink/v2.0 ../qgroundcontrol.pro
+	dh_auto_configure -- CONFIG+=DISABLE_VIDEOSTREAMING MAVLINKPATH=/usr/include/mavlink/v2.0 MAVLINKPATH_REL=/usr/include/mavlink/v2.0 ../qgroundcontrol.pro
