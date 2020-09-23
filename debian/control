@@ -6,6 +6,8 @@ Build-Depends:
  debhelper (>= 12),
  cmake,
  git,
+# mavlink
+ libmavlink-dev,
 # Qt
  libqt5charts5-dev,
  libqt5opengl5-dev,
@@ -37,8 +39,9 @@ Build-Depends:
  libespeak-dev,
 # SDL
  libsdl2-dev,
+# Others
  libudev-dev,
- libmavlink-dev,
+ libwayland-dev,
 Standards-Version: 3.9.5
 Homepage: https://github.com/mavlink/qgroundcontrol
 Vcs-Git: git://github.com/mavlink/qgroundcontrol.git
