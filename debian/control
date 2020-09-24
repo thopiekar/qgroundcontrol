@@ -5,6 +5,7 @@ Maintainer: Daniel Agar <daniel@agar.ca>
 Build-Depends:
  debhelper (>= 12),
  cmake,
+ pkg-config,
  git,
 # mavlink
  libmavlink-dev,
@@ -39,8 +40,13 @@ Build-Depends:
  libespeak-dev,
 # SDL
  libsdl2-dev,
+# gstreamer
+ libgstreamer1.0-dev,
+ libgstreamer-plugins-base1.0-dev,
+ libgstreamer-plugins-good1.0-dev,
 # Others
  libudev-dev,
+ libegl-dev,
  libwayland-dev,
 Standards-Version: 3.9.5
 Homepage: https://github.com/mavlink/qgroundcontrol
