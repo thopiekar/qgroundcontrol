@@ -1,4 +1,3 @@
-qgroundcontrol.desktop usr/share/applications
-release/qgroundcontrol usr/bin
-resources/ usr/share/qgroundcontrol
+build/staging/QGroundControl /usr/bin
 resources/icons/qgroundcontrol.png usr/share/pixmaps
+resources/ usr/share/qgroundcontrol
