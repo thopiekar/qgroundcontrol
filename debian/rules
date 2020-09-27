@@ -5,7 +5,9 @@
 export DH_VERBOSE=1
 
 %:
-	dh $@ --buildsystem=qmake --builddirectory=build --parallel
+	dh $@ --buildsystem=qmake \
+	      --builddirectory=build \
+	      --parallel
 
 override_dh_auto_clean:
 	# Let's act as we would be a pure qmake project
@@ -13,7 +15,10 @@ override_dh_auto_clean:
 	dh_clean -O--buildsystem=qmake
 
 override_dh_auto_configure:
-	dh_auto_configure -- CONFIG+=DISABLE_VIDEOSTREAMING CONFIG+=QGC_LINUX_DISABLE_QT_INSTALL MAVLINKPATH=/usr/include/mavlink/v2.0 MAVLINKPATH_REL=/usr/include/mavlink/v2.0 ../qgroundcontrol.pro
+	dh_auto_configure -- CONFIG+=DISABLE_VIDEOSTREAMING \
+	                     CONFIG+=QGC_LINUX_DISABLE_QT_INSTALL \
+	                     MAVLINKPATH=/usr/include/mavlink/v2.0 MAVLINKPATH_REL=/usr/include/mavlink/v2.0 \
+	                     ../qgroundcontrol.pro
 
 override_dh_missing:
 	dh_missing --fail-missing
