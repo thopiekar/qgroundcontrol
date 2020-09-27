@@ -14,3 +14,6 @@ override_dh_auto_clean:
 
 override_dh_auto_configure:
 	dh_auto_configure -- CONFIG+=DISABLE_VIDEOSTREAMING CONFIG+=QGC_LINUX_DISABLE_QT_INSTALL MAVLINKPATH=/usr/include/mavlink/v2.0 MAVLINKPATH_REL=/usr/include/mavlink/v2.0 ../qgroundcontrol.pro
+
+override_dh_missing:
+	dh_missing --fail-missing
