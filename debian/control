@@ -57,5 +57,10 @@ Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
+# QML
+ qml-module-qtcharts,
+ qml-module-qtlocation,
+ qml-module-qtpositioning,
+# Other
  espeak,
 Description: Open Source Micro Air Vehicle Ground Control Station
