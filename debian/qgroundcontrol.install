@@ -1,3 +1,4 @@
 build/staging/QGroundControl /usr/bin
+debian/qgroundcontrol.desktop /usr/share/applications
 resources/icons/qgroundcontrol.png usr/share/pixmaps
 resources/ usr/share/qgroundcontrol
