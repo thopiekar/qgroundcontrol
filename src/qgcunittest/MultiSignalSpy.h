@@ -7,7 +7,6 @@
  *
  ****************************************************************************/
 
-
 #pragma once
 
 #include <QObject>
@@ -17,8 +16,9 @@
 /// @file
 ///     @brief This class allows you to keep track of signal counts on a set of signals associated with an object.
 ///     Mainly used for writing object unit tests.
-///
-///     @author Don Gagne <don@thegagnes.com>
+
+#define MULTISPY_ENUM_SIGNAL_INDEX(signalName) signalName##index,
+#define MULTISPY_ENUM_SIGNAL_MASK(signalName) signalName##mask = 1 << signalName##index,
 
 class MultiSignalSpy : public QObject
 {

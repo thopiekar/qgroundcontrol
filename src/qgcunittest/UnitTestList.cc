@@ -15,7 +15,6 @@
 #include "FactSystemTestPX4.h"
 //#include "FileDialogTest.h"
 #include "GeoTest.h"
-#include "LinkManagerTest.h"
 //#include "MessageBoxTest.h"
 #include "MissionItemTest.h"
 #include "SimpleMissionItemTest.h"
@@ -26,7 +25,6 @@
 #include "MavlinkLogTest.h"
 //#include "MainWindowTest.h"
 //#include "FileManagerTest.h"
-#include "TCPLinkTest.h"
 #include "ParameterManagerTest.h"
 #include "MissionCommandTreeTest.h"
 //#include "LogDownloadTest.h"
@@ -46,28 +44,26 @@
 #include "CameraCalcTest.h"
 #include "FWLandingPatternTest.h"
 #include "RequestMessageTest.h"
-#include "InitialConnectTest.h"
 #include "FTPManagerTest.h"
 #include "MissionCommandTreeEditorTest.h"
+#include "VehicleLinkManagerTest.h"
 #include "LandingComplexItemTest.h"
 
 UT_REGISTER_TEST(FactSystemTestGeneric)
 UT_REGISTER_TEST(FactSystemTestPX4)
 //UT_REGISTER_TEST(FileDialogTest)
 UT_REGISTER_TEST(GeoTest)
-UT_REGISTER_TEST(LinkManagerTest)
+UT_REGISTER_TEST(VehicleLinkManagerTest)
 //UT_REGISTER_TEST(MessageBoxTest)
 UT_REGISTER_TEST(SendMavCommandWithSignallingTest)
 UT_REGISTER_TEST(SendMavCommandWithHandlerTest)
 UT_REGISTER_TEST(RequestMessageTest)
 UT_REGISTER_TEST(FTPManagerTest)
-UT_REGISTER_TEST(InitialConnectTest)
 UT_REGISTER_TEST(MissionItemTest)
 UT_REGISTER_TEST(SimpleMissionItemTest)
 UT_REGISTER_TEST(MissionControllerTest)
 UT_REGISTER_TEST(MissionManagerTest)
 //UT_REGISTER_TEST(RadioConfigTest)
-UT_REGISTER_TEST(TCPLinkTest)
 //UT_REGISTER_TEST(FileManagerTest)
 UT_REGISTER_TEST(ParameterManagerTest)
 UT_REGISTER_TEST(MissionCommandTreeTest)
@@ -86,6 +82,7 @@ UT_REGISTER_TEST(QGCMapPolylineTest)
 UT_REGISTER_TEST(CameraCalcTest)
 UT_REGISTER_TEST(FWLandingPatternTest)
 UT_REGISTER_TEST(LandingComplexItemTest)
+
 UT_REGISTER_TEST_STANDALONE(MissionCommandTreeEditorTest)
 
 // List of unit test which are currently disabled.

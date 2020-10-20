@@ -7,15 +7,6 @@
  *
  ****************************************************************************/
 
-
-/**
- * @file
- *   @brief Main executable
- *   @author Lorenz Meier <mavteam@student.ethz.ch>
- *
- */
-
-#include "QGC.h"
 #include <QtGlobal>
 #include <QApplication>
 #include <QIcon>
@@ -26,12 +17,18 @@
 #include <QUdpSocket>
 #include <QtPlugin>
 #include <QStringListModel>
+
+#include "QGC.h"
 #include "QGCApplication.h"
 #include "AppMessages.h"
+#include "SerialLink.h"
 
 #ifndef __mobile__
     #include "QGCSerialPortInfo.h"
     #include "RunGuard.h"
+#ifndef NO_SERIAL_LINK
+    #include <QSerialPort>
+#endif
 #endif
 
 #ifdef UNITTEST_BUILD
@@ -291,6 +288,8 @@ int main(int argc, char *argv[])
     qRegisterMetaType<QGCSerialPortInfo>();
 #endif
 #endif
+
+    qRegisterMetaType<Vehicle::MavCmdResultFailureCode_t>("Vehicle::MavCmdResultFailureCode_t");
 
     // We statically link our own QtLocation plugin
 

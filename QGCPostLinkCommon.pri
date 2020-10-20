@@ -72,8 +72,6 @@ WindowsBuild {
 }
 
 LinuxBuild {
-    QMAKE_POST_LINK += echo "Post Link Common"
-
     !contains (CONFIG, QGC_LINUX_DISABLE_QT_INSTALL) {
         QMAKE_POST_LINK += && mkdir -p $$DESTDIR/Qt/libs && mkdir -p $$DESTDIR/Qt/plugins
 

@@ -17,6 +17,7 @@
 #include "SettingsManager.h"
 #include "QGCZlib.h"
 #include "JsonHelper.h"
+#include "LinkManager.h"
 
 #include <QStandardPaths>
 #include <QRegularExpression>
@@ -180,7 +181,7 @@ QStringList FirmwareUpgradeController::availableBoardsName(void)
     QStringList names;
 
     auto ports = QGCSerialPortInfo::availablePorts();
-    for(const auto info : ports) {
+    for (const auto& info : ports) {
         if(info.canFlash()) {
             info.getBoardInfo(boardType, boardName);
             names.append(boardName);
@@ -364,6 +365,13 @@ void FirmwareUpgradeController::_initFirmwareHash()
         { ThreeDRRadio, StableFirmware, DefaultVehicleFirmware, "http://px4-travis.s3.amazonaws.com/SiK/stable/radio~hm_trp.ihx"}
     };
 
+    /////////////////////////////// cuav nora firmwares ///////////////////////////////////////
+    FirmwareToUrlElement_t rgCUAVNoraFirmwareArray[] = {
+        { AutoPilotStackPX4, StableFirmware,    DefaultVehicleFirmware, "http://px4-travis.s3.amazonaws.com/Firmware/stable/cuav_nora_default.px4"},
+        { AutoPilotStackPX4, BetaFirmware,      DefaultVehicleFirmware, "http://px4-travis.s3.amazonaws.com/Firmware/beta/cuav_nora_default.px4"},
+        { AutoPilotStackPX4, DeveloperFirmware, DefaultVehicleFirmware, "http://px4-travis.s3.amazonaws.com/Firmware/master/cuav_nora_default.px4"},
+    };
+
     // We build the maps for PX4 firmwares dynamically using the data below
 
 #if 0
@@ -400,6 +408,12 @@ void FirmwareUpgradeController::_initFirmwareHash()
     for (int i = 0; i < size; i++) {
         const FirmwareToUrlElement_t& element = rgAeroCoreFirmwareArray[i];
         _rgAeroCoreFirmware.insert(FirmwareIdentifier(element.stackType, element.firmwareType, element.vehicleType), element.url);
+    }
+
+    size = sizeof(rgCUAVNoraFirmwareArray)/sizeof(rgCUAVNoraFirmwareArray[0]);
+    for (int i = 0; i < size; i++) {
+        const FirmwareToUrlElement_t& element = rgCUAVNoraFirmwareArray[i];
+        _rgCUAVNoraFireware.insert(FirmwareIdentifier(element.stackType, element.firmwareType, element.vehicleType), element.url);
     }
 
     size = sizeof(rgAUAVX2_1FirmwareArray)/sizeof(rgAUAVX2_1FirmwareArray[0]);
@@ -568,6 +582,9 @@ QHash<FirmwareUpgradeController::FirmwareIdentifier, QString>* FirmwareUpgradeCo
         break;
     case Bootloader::boardIDCUAVX7:
         _rgFirmwareDynamic = _rgPX4CUAVX7Fireware;
+        break;
+    case Bootloader::boardIDCUAVNora:
+        _rgFirmwareDynamic = _rgCUAVNoraFireware;
         break;
     default:
         // Unknown board id
